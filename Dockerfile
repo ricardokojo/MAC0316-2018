@@ -1,14 +1,14 @@
 # FROM phusion/baseimage
 FROM ubuntu:18.04
 
-LABEL Name=smlnj Version=0.0.1
+LABEL Name=smlnj Version=0.0.2
 
 WORKDIR /root
 
 RUN apt-get clean && apt-get update
 
-# Install wget and build tools
-RUN apt-get install -y wget build-essential
+# Install curl and build tools
+RUN apt-get install -y curl build-essential
 
 # Install `multilib` for 32-bit support that SML/NJ requires.
 RUN apt-get install -y gcc-multilib g++-multilib
@@ -17,10 +17,10 @@ RUN apt-get install -y gcc-multilib g++-multilib
 RUN apt-get install -y rlwrap
 
 # Get the source
-RUN wget http://smlnj.cs.uchicago.edu/dist/working/110.83/config.tgz
+RUN curl -O http://smlnj.cs.uchicago.edu/dist/working/110.83/config.tgz
 
 # Extract the source
-RUN gunzip <config.tgz | tar xf -
+RUN gunzip < config.tgz | tar xf -
 
 # Modify the configured targets, in order to build the heap2adm program
 RUN sed -i /root/config/targets -e "s/\#request heap2asm/request heap2asm/g"
