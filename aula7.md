@@ -11,13 +11,32 @@ As vinculações devem determinar, para cada identificador, os atributos importa
 ### Vinculações: nos projetos das LPs
 
 Devemos determinar:
-* Entidades vinculáveis;
+* Entidades vinculáveis
+    * Valores;
+    * Tipos;
+    * Abstrações (processos, dados);
+    * Espaço de memória.
 * Forma de vinculação;
 * Tempo de vinculação.
 
-Cada programa em execução contém um conjunto de vinculações necessárias à sua execuação:
+Cada programa em execução contém um conjunto de vinculações necessárias à sua execução:
 * Valores;
 * Tipos;
 * Variáveis;
 * Abstrações.
 
+### Declarações implícitas
+
+Atributos são inferidos pelo processador sem que tenham sido declarado explicitamente.
+
+### Declarações explícitas de variáveis
+
+* Vincula um identificador a uma variável;
+* ALguns outros atributos são associados, tal como o tipo, espaço de memória, valor etc;
+* As variáveis podem ser simples, compostas.
+
+### Declaração de tipos
+
+* Vincula um identificador a um tipo;
+* Uma definição de tipo para um identificador vincula tipos existentes. Por exemplo, os tipos predefinidos têm atributos (espaço, valores, ...) vinculados a *priori* via palavras reservadas na linguagem;
+* Novos tipos podem ser declarados.
